@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una pequeña pista...</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #f7f1e8;
+      color: #29231f;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .card {
+      width: min(620px, 100%);
+      padding: 42px 30px;
+      background: #fffdf9;
+      border: 1px solid #ded2c3;
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(50, 35, 20, .10);
+      text-align: center;
+    }
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(30px, 8vw, 48px);
+      font-weight: normal;
+      margin: 0 0 26px;
+    }
+    .line {
+      width: 55px;
+      height: 1px;
+      background: #b9a58f;
+      margin: 0 auto 28px;
+    }
+    .clue {
+      font-size: clamp(20px, 5vw, 28px);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .hint {
+      margin-top: 34px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      opacity: .55;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="eyebrow">Primera pista · 01</div>
+    <h1>Empezamos...</h1>
+    <div class="line"></div>
+    <p class="clue">
+      Hay regalos que se abren con las manos...<br>
+      y otros que se descubren con un poco de curiosidad.<br><br>
+      Para encontrar la siguiente pista,<br>
+      <strong>busca donde descansan las historias que suenan.</strong>
+    </p>
+    <p class="hint">Cuando la encuentres, no te detengas. Esto acaba de empezar. ♥</p>
+  </main>
+</body>
+</html>

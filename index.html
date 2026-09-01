@@ -1,75 +1,293 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Una pequeña pista...</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: #f7f1e8;
-      color: #29231f;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-    .card {
-      width: min(620px, 100%);
-      padding: 42px 30px;
-      background: #fffdf9;
-      border: 1px solid #ded2c3;
-      border-radius: 18px;
-      box-shadow: 0 14px 40px rgba(50, 35, 20, .10);
-      text-align: center;
-    }
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: .6;
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-size: clamp(30px, 8vw, 48px);
-      font-weight: normal;
-      margin: 0 0 26px;
-    }
-    .line {
-      width: 55px;
-      height: 1px;
-      background: #b9a58f;
-      margin: 0 auto 28px;
-    }
-    .clue {
-      font-size: clamp(20px, 5vw, 28px);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .hint {
-      margin-top: 34px;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-      opacity: .55;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una pequeña misión para Mel ✨</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,.8), transparent 25%),
+      linear-gradient(135deg, #f3ead9, #d9c6a5);
+    color: #172235;
+    overflow: hidden;
+  }
+
+  .card {
+    width: min(92vw, 620px);
+    min-height: 680px;
+    padding: 42px 34px;
+    text-align: center;
+    background: rgba(255,250,240,.96);
+    border: 2px solid #b08b45;
+    border-radius: 28px;
+    box-shadow: 0 18px 50px rgba(40,30,20,.22);
+    position: relative;
+  }
+
+  .small {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #8b6a32;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(38px, 9vw, 58px);
+    color: #172235;
+  }
+
+  .subtitle {
+    margin: 10px auto 25px;
+    max-width: 470px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .star {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 105px;
+    line-height: 1;
+    color: #b08b45;
+    text-shadow: 0 5px 0 #8b6a32, 0 12px 22px rgba(0,0,0,.18);
+    transition: transform .18s ease, filter .18s ease;
+    animation: pulse 1.8s infinite;
+  }
+
+  .star:hover {
+    transform: scale(1.1) rotate(4deg);
+    filter: brightness(1.12);
+  }
+
+  .star:active { transform: scale(.92); }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.045); }
+  }
+
+  .hint {
+    margin: 4px 0 25px;
+    font-size: 15px;
+    color: #6b6256;
+  }
+
+  .progress-wrap {
+    width: 100%;
+    height: 18px;
+    background: #e6dccb;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #c8b99e;
+    margin: 12px 0 8px;
+  }
+
+  .progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #172235, #b08b45);
+    border-radius: 20px;
+    transition: width .45s ease;
+  }
+
+  .counter {
+    font-size: 14px;
+    color: #716757;
+  }
+
+  .message {
+    min-height: 105px;
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 18px;
+    background: #f5efe4;
+    border: 1px dashed #b08b45;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    line-height: 1.55;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+
+  .message.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .final {
+    display: none;
+    animation: appear .7s ease;
+  }
+
+  @keyframes appear {
+    from { opacity: 0; transform: scale(.94); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .final .big-star {
+    font-size: 64px;
+  }
+
+  .riddle {
+    margin: 22px auto;
+    padding: 25px;
+    background: #172235;
+    color: #f8f0df;
+    border-radius: 20px;
+    font-size: 22px;
+    line-height: 1.65;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+  }
+
+  .signature {
+    color: #8b6a32;
+    font-style: italic;
+    font-size: 17px;
+  }
+
+  .confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .confetti span {
+    position: absolute;
+    font-size: 22px;
+    animation: fall 5s linear infinite;
+    opacity: .75;
+  }
+
+  @keyframes fall {
+    from { transform: translateY(-50px) rotate(0deg); }
+    to { transform: translateY(760px) rotate(360deg); }
+  }
+
+  .reset {
+    margin-top: 12px;
+    border: 0;
+    background: transparent;
+    color: #8b6a32;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  @media (max-width: 500px) {
+    .card { min-height: 650px; padding: 32px 22px; }
+    .star { font-size: 88px; }
+    .riddle { font-size: 19px; }
+  }
+</style>
 </head>
+
 <body>
-  <main class="card">
-    <div class="eyebrow">Primera pista · 01</div>
-    <h1>Empezamos...</h1>
-    <div class="line"></div>
-    <p class="clue">
-      Hay regalos que se abren con las manos...<br>
-      y otros que se descubren con un poco de curiosidad.<br><br>
-      Para encontrar la siguiente pista,<br>
-      <strong>busca donde descansan las historias que suenan.</strong>
+<main class="card">
+  <div class="confetti">
+    <span style="left:8%; animation-delay:0s;">✦</span>
+    <span style="left:22%; animation-delay:1.3s;">•</span>
+    <span style="left:78%; animation-delay:.7s;">✦</span>
+    <span style="left:91%; animation-delay:2s;">•</span>
+  </div>
+
+  <section id="game">
+    <div class="small">Feliz Cumple</div>
+    <h2>Mel ✨</h2>
+    <p class="subtitle">
+      Para conseguir la siguiente pista tendrás que demostrar que tienes
+      paciencia... y pulsar la estrella.
     </p>
-    <p class="hint">Cuando la encuentres, no te detengas. Esto acaba de empezar. ♥</p>
-  </main>
+
+    <button class="star" id="star" aria-label="Pulsar estrella">★</button>
+
+    <div class="hint">Cada pulsación te acerca un poquito más al regalo...</div>
+
+    <div class="progress-wrap">
+      <div class="progress" id="progress"></div>
+    </div>
+    <div class="counter" id="counter">0 / 5</div>
+
+    <div class="message" id="message">
+      Pulsa la estrella para comenzar la misión ⭐
+    </div>
+  </section>
+
+  <section class="final" id="final">
+    <div class="big-star">⭐</div>
+    <div class="small">Pista desbloqueada</div>
+    <h1>Has llegado hasta aquí...</h1>
+
+    <div class="riddle">
+      No soy libro, pero tengo historias.<br>
+      No hablo, pero guardo canciones.<br>
+      Giro y giro cuando alguien me despierta,<br>
+      y en mis círculos negros se esconden tus tesoros.<br><br>
+      <strong>¿Dónde tendrás que buscar?</strong>
+    </div>
+
+    <p class="signature">
+      Si has pensado en música, vas por buen camino... 🎶
+    </p>
+  </section>
+</main>
+
+<script>
+  const messages = [
+    "Primera pista: todo gran regalo empieza con un poquito de curiosidad... ✨",
+    "Bien, Mel. Ya has dado el primer paso. Pero todavía queda camino por recorrer. 👀",
+    "La siguiente pista está más cerca de lo que crees. Sigue pulsando... ⭐",
+    "Casi lo tienes. Hay un lugar donde los recuerdos suenan de una forma muy especial... 🎶",
+    "¡Última pulsación! La pista está a punto de desbloquearse... 🔓"
+  ];
+
+  let clicks = 0;
+  const total = messages.length;
+
+  const star = document.getElementById("star");
+  const progress = document.getElementById("progress");
+  const counter = document.getElementById("counter");
+  const message = document.getElementById("message");
+  const game = document.getElementById("game");
+  const final = document.getElementById("final");
+
+  star.addEventListener("click", () => {
+    if (clicks >= total) return;
+
+    clicks++;
+
+    progress.style.width = (clicks / total * 100) + "%";
+    counter.textContent = clicks + " / " + total;
+
+    message.classList.remove("show");
+
+    setTimeout(() => {
+      message.textContent = messages[clicks - 1];
+      message.classList.add("show");
+    }, 120);
+
+    if (clicks === total) {
+      setTimeout(() => {
+        game.style.display = "none";
+        final.style.display = "block";
+      }, 1300);
+    }
+  });
+</script>
 </body>
 </html>

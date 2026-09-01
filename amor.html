@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Para Mel ❤️</title>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  margin: 5;
+  min-height: 100%;
+}
+
+
+body {
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 15px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,.8),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #f3ead9,
+      #d9c6a5
+    );
+
+  color: #172235;
+
+}
+
+
+.card {
+
+  width: min(92vw, 560px);
+
+  padding: 35px 25px 40px;
+
+  text-align: center;
+
+  background:
+    rgba(255,250,240,.97);
+
+  border:
+    2px solid #b08b45;
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 18px 50px rgba(40,30,20,.22);
+
+  animation:
+    appear .9s ease;
+
+}
+
+
+.small {
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-size: 13px;
+
+  color: #8b6a32;
+
+  margin-bottom: 12px;
+
+}
+
+
+h1 {
+
+  margin: 0;
+
+  font-size:
+    clamp(34px, 9vw, 52px);
+
+  color: #172235;
+
+  line-height: 1.15;
+
+}
+
+
+.heart {
+
+  font-size: 38px;
+
+  margin:
+    15px 0 22px;
+
+  animation:
+    heartbeat 1.5s infinite;
+
+}
+
+
+/* =====================================================
+   FOTO
+   ===================================================== */
+
+.photo-frame {
+
+  width: 100%;
+
+  padding: 10px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.18);
+
+  transform:
+    rotate(-1.5deg);
+
+  margin:
+    15px 0 32px;
+
+}
+
+
+.photo-frame img {
+
+  width: 100%;
+
+  display: block;
+
+  height: auto;
+
+}
+
+
+.message {
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  color: #4f4a43;
+
+}
+
+
+.signature {
+
+  margin-top: 28px;
+
+  color: #8b6a32;
+
+  font-size: 19px;
+
+  font-style: italic;
+
+}
+
+
+@keyframes appear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(.97);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .card {
+    padding:
+      30px 20px 35px;
+  }
+
+  .message {
+    font-size: 17px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main class="card">
+
+  <div class="small">
+    Solo para ti
+  </div>
+
+
+  <h1>
+    Feliz 32,<br>
+    mi amor ❤️
+  </h1>
+
+
+  <div class="heart">
+    ❤️
+  </div>
+
+
+  <!-- =====================================================
+       FOTO
+
+       Pon vuestra foto en la misma carpeta
+       y llámala:
+
+       foto.jpg
+       ===================================================== -->
+
+  <div class="photo-frame">
+
+    <img
+      src="foto.jpg"
+      alt="Nosotras"
+    >
+
+  </div>
+
+
+  <div class="message">
+
+    <p>
+      Espero que estos 32 vengan cargados
+      de momentos bonitos, risas,
+      aventuras y muchas cosas que
+      podamos seguir compartiendo juntas.
+    </p>
+
+
+    <p>
+      Este era un pequeño secreto
+      que quería guardar solo para ti...
+      ❤️
+    </p>
+
+
+    <p>
+      Y recuerda que esto es solo
+      el principio de todos tus regalos. 🎁
+    </p>
+
+  </div>
+
+
+  <div class="signature">
+
+    Te quiero ❤️
+
+  </div>
+
+
+</main>
+
+
+</body>
+
+</html>
